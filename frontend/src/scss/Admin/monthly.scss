@@ -1,0 +1,144 @@
+// styles/main.scss
+
+$primary-color: #4CAF50;
+$secondary-color: #333;
+$background-color: #f9f9f9;
+$card-bg-color: #ffffff;
+$text-color: #333;
+$header-bg-color: #f1f1f1;
+$shadow-color: rgba(0, 0, 0, 0.1);
+$border-radius: 8px;
+$padding: 16px;
+$transition-time: 0.3s;
+
+.reports-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: $padding;
+  background-color: $background-color;
+  border-radius: $border-radius;
+  box-shadow: 0 0 10px $shadow-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+
+  .header {
+    display: flex;
+    align-items: center;
+    background-color: $header-bg-color;
+    padding: $padding;
+    border-radius: $border-radius $border-radius 0 0;
+
+    .back-button {
+      margin-right: 16px;
+      font-size: 24px;
+      color: $secondary-color;
+      cursor: pointer;
+      transition: color $transition-time ease;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+
+    h1 {
+      margin: 0;
+      color: $primary-color;
+      font-size: 24px;
+    }
+  }
+
+  .reports-content {
+    padding: $padding;
+
+    h2 {
+      color: $primary-color;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      color: $text-color;
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    .report-cards {
+      display: flex;
+      gap: 16px;
+
+      .report-card {
+        background-color: $card-bg-color;
+        padding: $padding;
+        border-radius: $border-radius;
+        box-shadow: 0 0 5px $shadow-color;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: transform $transition-time ease;
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+
+        &.popular {
+          border: 2px solid $primary-color;
+        }
+
+        .report-image {
+          width: 100%;
+          height: 120px;
+          background-color: lighten($primary-color, 40%);
+          border-radius: $border-radius;
+          margin-bottom: 16px;
+        }
+
+        h3 {
+          color: $secondary-color;
+          font-size: 18px;
+          margin-bottom: 16px;
+        }
+
+        .view-button {
+          padding: 8px 16px;
+          background-color: $primary-color;
+          color: #fff;
+          border: none;
+          border-radius: $border-radius;
+          cursor: pointer;
+          transition: background-color $transition-time ease;
+
+          &:hover {
+            background-color: darken($primary-color, 10%);
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-around;
+    padding: $padding;
+    background-color: $header-bg-color;
+    border-radius: 0 0 $border-radius $border-radius;
+
+    .footer-button {
+      padding: 12px 24px;
+      background-color: $primary-color;
+      color: #fff;
+      border: none;
+      border-radius: $border-radius;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color $transition-time ease;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+}

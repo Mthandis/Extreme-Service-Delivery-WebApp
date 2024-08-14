@@ -1,0 +1,66 @@
+// styles/main.scss
+
+$primary-color: #4CAF50;
+$background-color: #f9f9f9;
+$card-bg-color: #ffffff;
+$text-color: #333;
+$header-bg-color: #f1f1f1;
+$shadow-color: rgba(0, 0, 0, 0.1);
+$border-radius: 8px;
+$padding: 16px;
+
+.pending-issues-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: $padding;
+  background-color: $background-color;
+  border-radius: $border-radius;
+  box-shadow: 0 0 10px $shadow-color;
+
+  .header {
+    background-color: $header-bg-color;
+    padding: $padding;
+    border-radius: $border-radius $border-radius 0 0;
+    text-align: center;
+
+    h1 {
+      margin: 0;
+      color: $primary-color;
+      font-size: 24px;
+    }
+  }
+
+  .issues-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+
+    .issue-card {
+      background-color: blue;
+      border: 1px solid red;
+      border-radius: 8px;
+      padding: 1rem;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: black;
+      }
+
+      h2 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.5rem;
+      }
+
+      p {
+        margin: 0;
+        font-size: 1rem;
+        color: $text-color;
+      }
+    }
+  }
+  p {
+    text-align: center;
+    color: $text-color;
+    font-size: 18px;
+  }
+}

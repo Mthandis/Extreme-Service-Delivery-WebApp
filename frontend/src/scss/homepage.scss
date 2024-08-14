@@ -1,0 +1,194 @@
+@import './colors';
+
+@mixin center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+@mixin section{
+    background-color: $background-color;
+    position: absolute;
+    border: solid 1px;
+    background-color: $section-background;
+    border-radius: 6px;
+    align-items: center;
+    transform: translate(-50%);
+}
+
+@mixin heading{
+    align-items: center;
+    text-align: center;
+}
+
+
+@mixin button-style {
+    background-color: $button-colour;
+    color: $text-color;
+    border: none; 
+    padding: 15px 90px;
+    font-size: $font-size-footer;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    max-width: 500px;
+    min-width: 600px;
+
+    &:hover {
+        background-color: $hover-color;
+    }
+}
+
+/*home page*/
+
+.citizen-dashboard {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    background-color: $secondary-colour;
+
+    .header, .footer {
+        width: 100%;
+        color: $text-color;
+        text-align: center;
+        padding: 10px 0;
+        position: fixed;
+        left: 0;
+        box-sizing: border-box;
+        background-color: $secondary-colour;
+        z-index: 5;
+
+        &.header {
+            top: 0;
+            z-index: 5; // Ensure header is on top of other content
+        }
+
+        &.footer {
+            bottom: 0;
+            z-index: 5; // Ensure footer is on top of other content
+        }
+
+    }
+
+    .header {
+        display: flex;
+        justify-content: center; // Centered items in header
+        align-items: center; // Vertically aligned items in header
+        gap: 30px; // Added gap between items for better spacing
+    }
+
+    .content {
+        margin-left: 250px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content:center;
+        padding: 90px; 
+        width: 100%; 
+        margin-top: 80px;
+        margin-bottom: 60px;
+        position: absolute;
+        left: 200px;
+        transform: translate(73%, 10%);
+        background-color: $background-color;
+
+        img {
+            width: 250px;
+            height: 250px;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        .home-buttons {
+            display: flex;
+            flex-direction: column; // Horizontal layout
+            gap: 20px;
+            margin-top: 0; // Increased margin-top for better spacing
+            button {
+                @include button-style;
+            }
+        }
+    }
+
+    .footer {
+        font-size:12px;
+        color: $text-color;
+        padding: 5px;
+        text-align: center; // Added padding for better spacing
+    }
+}
+
+/*Menu*/
+
+aside{
+    background:  $secondary-colour;
+    width: 25%;
+    padding-left: 30px;
+    padding-right: 10px;
+    padding-top: 20px;
+    float: left;
+    height: 100%;
+    margin: 0 auto 0 0;
+    z-index: 10;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    justify-content: center;
+}
+
+aside h2{
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    color:white;
+}
+
+aside .email{
+    color: #403a3a;
+    margin-left: 30px;
+    margin-bottom: 30px;
+
+    :hover{
+        cursor: pointer;
+    }
+}
+
+
+.profile-pic{
+    border-radius: 50%;
+    width: 80px;
+    transform: translate(50%);
+    margin-top: 130px;
+    margin-left: 30px;
+}
+
+.links{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 16px;
+    border: 2px solid black;
+    padding: 8px 0px 12px 2px;
+    width: 80%;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.links .dash-icon{
+    position: relative;
+}
+
+.links:hover{
+    cursor: pointer;
+}
+

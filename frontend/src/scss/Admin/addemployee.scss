@@ -1,0 +1,73 @@
+// styles/main.scss
+
+$form-bg-color: #f9f9f9;
+$form-border-color: #ccc;
+$form-text-color: #333;
+$primary-color: #4CAF50;
+$input-padding: 10px;
+$input-border-radius: 4px;
+$input-border: 1px solid $form-border-color;
+$icon-size: 20px;
+
+.form-section {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: $form-bg-color;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .form-heading {
+    text-align: center;
+    margin-bottom: 20px;
+    h1 {
+      font-size: 24px;
+      color: $primary-color;
+    }
+  }
+
+  .details-div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+    .icon {
+      width: $icon-size;
+      height: $icon-size;
+      margin-right: 10px;
+      background-color: $form-border-color;
+      border-radius: 50%;
+    }
+
+    input, select {
+      flex: 1;
+      padding: $input-padding;
+      border-radius: $input-border-radius;
+      border: $input-border;
+      font-size: 16px;
+      color: $form-text-color;
+
+      &:focus {
+        border-color: $primary-color;
+        outline: none;
+        box-shadow: 0 0 5px rgba($primary-color, 0.5);
+      }
+    }
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px;
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+    border-radius: $input-border-radius;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}

@@ -1,0 +1,73 @@
+@import './colors';
+
+.about-us-page {
+  color: black;
+  padding: 40px;
+  height: 100vh; // Ensures the page covers the full viewport height
+  display: flex;
+  flex-direction: column; // Arrange children vertically
+  align-items: flex-start; // Align items to the start of the container
+
+  .container {
+    margin: 0 auto;
+    padding: 20px; // Background color for better contrast
+    border-radius: 8px;
+    width: 100%;
+    max-width: 1200px; // Optional: max width for better content width control
+  }
+
+  h1 {
+    color: $secondary-colour;
+    text-align: center;
+    font-size: 2.5rem; // Larger font size for the main heading
+    margin-bottom: 40px;
+  }
+
+  .section {
+    margin-bottom: 40px;
+
+    h2 {
+      color: $secondary-colour;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: $secondary-colour;
+    }
+
+    ul {
+      font-size: $font-size-small;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      list-style-type: disc;
+      padding-left: 20px;
+
+      li {
+        margin-bottom: 10px;
+        font-weight: 100;
+      }
+
+     .email-link {
+        color: $hover-color;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.goback-button {
+  position: absolute;
+  color: $secondary-colour;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}

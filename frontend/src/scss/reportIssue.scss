@@ -1,0 +1,77 @@
+
+@import './colors';
+
+/*Report Issue Page*/
+
+// body {
+//     font-family: Arial, sans-serif;
+//     background-color: #f4f4f4;
+//     margin: 0;
+//     padding: 0;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 100vh;
+// }
+
+
+.back-button{
+    position: absolute;
+    color: $secondary-colour;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+.container {
+    padding: 20px;
+    border-radius: 8px;
+    width: 100vh;
+    height: 100vh;
+    margin:200px; 
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: $secondary-colour;
+}
+
+label {
+    font-size: $font-size-footer;
+    margin-top: 10px;
+    display: block;
+    color: black;
+}
+
+input[type="text"], select, textarea {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    resize: none;
+}
+
+.submit-issue-button {
+    width: 20%;
+    margin-left: 360px;
+    background-color: $secondary-colour;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: $font-size-footer;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: $hover-color;
+}
+

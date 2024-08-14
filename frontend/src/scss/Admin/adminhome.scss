@@ -1,0 +1,139 @@
+/* Base colors */
+$black: #000;
+$white: #fff;
+$grey-light: #f0f0f0;
+$grey-dark: #333;
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Combined Page */
+.combined-page {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Sidebar */
+.sidebar {
+  flex: 0 0 250px; /* Fixed width for sidebar */
+  background-color: $black;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-right: 500px;
+}
+
+.menu-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-image img {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.profile-name {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.menu-content {
+  flex: 1;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-item {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: $grey-dark;
+  border-radius: 5px;
+  color: $white;
+  text-decoration: none;
+  font-size: 16px;
+  text-align: center;
+}
+
+.menu-item:hover {
+  background-color: $grey-light;
+  color: $black;
+}
+
+.menu-footer {
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  background-color: $grey-dark;
+}
+
+/* Dashboard */
+.dashboard {
+    margin-left: 350px;
+  flex: 1;
+  background-color: $grey-light;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-header {
+  background-color: $black;
+  color: $white;
+  padding: 20px;
+  text-align: center;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.main-section {
+  margin-bottom: 20px;
+}
+
+.logo img {
+  width: 100px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.logo h2 {
+  color: $black;
+  text-align: center;
+}
+
+.charts {
+  background-color: $white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.chart {
+  margin: 0 auto;
+  max-width: 800px;
+}
