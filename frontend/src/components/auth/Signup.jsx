@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser, faEnvelope, faLocationDot, faLock, faPhone, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import img1 from '../../assets/emalahleni.png';
+import img1 from '../../assets/logo.jpeg';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; // Import Axios
 import '../../scss/signup.scss';

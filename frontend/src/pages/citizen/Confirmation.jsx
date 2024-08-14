@@ -1,10 +1,25 @@
 import React from 'react';
+import axios from 'axios'
 import '../../scss/confirmation.scss';
 import img1 from '../../assets/signup.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'; // Use the appropriate icon
 
 const Confirmation = () => {
+  const confirmIssue = async (issueId) => {
+    try {
+
+      //change the link
+      const response = await axios.post('https://api.example.com/confirm-issue', {
+        issueId: issueId
+      });
+      // Handle the response, e.g., show a success message
+      console.log('Issue confirmed:', response.data);
+    } catch (error) {
+      // Handle errors
+      console.error('There was an error confirming the issue!', error);
+    }
+  };
   return (
     <div>
       <FontAwesomeIcon

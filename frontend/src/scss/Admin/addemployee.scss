@@ -1,6 +1,123 @@
+//for new page 
+
+// Variables
+$form-heading-color: #fff;
+$input-border-color: #666;
+$placeholder-color: #999;
+$btn-bg-color: #000;
+$btn-hover-bg-color: #444;
+$btn-active-bg-color: #222;
+$form-section-bg: #000;
+
+$primary-color: #333;
+$secondary-color: #666;
+$text-color: #000;
+$button-color: #000;
+$button-hover-color: #444;
+$button-text-color: #fff;
+$border-color: #bbb;
+
+$background-color: #000;
+$card-bg-color: #333;
+$card-border-color: #444;
+$card-hover-bg-color: #555;
+$loading-color: #888;
+
+$padding: 16px;
+$margin-bottom: 20px;
+$font-weight-bold: 700;
+$margin-right: 20px;
+$flex-grow: 1;
+$margin-left: 15px;
+
+// General Styles
+body {
+    background-color: $background-color;
+    color: $text-color;
+    font-family: Arial, sans-serif;
+}
+
+.form-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: $padding;
+}
+
+nav {
+    margin-bottom: $margin-bottom;
+    button {
+        margin-right: $margin-right;
+        background-color: $btn-bg-color;
+        color: $button-text-color;
+        border: 1px solid $border-color;
+        padding: 10px;
+        cursor: pointer;
+        &:hover {
+            background-color: $btn-hover-bg-color;
+        }
+        &:active {
+            background-color: $btn-active-bg-color;
+        }
+    }
+}
+
+form {
+    background-color: $form-section-bg;
+    padding: $padding;
+    border-radius: 5px;
+
+    label {
+        color: $form-heading-color;
+        display: block;
+        margin-top: $margin-bottom / 2;
+    }
+
+    input {
+        border: 1px solid $input-border-color;
+        padding: 10px;
+        border-radius: 4px;
+        width: 100%;
+        margin-bottom: $margin-bottom;
+
+        &::placeholder {
+            color: $placeholder-color;
+        }
+    }
+
+    button {
+        background-color: $btn-bg-color;
+        color: $button-text-color;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        &:hover {
+            background-color: $btn-hover-bg-color;
+        }
+        &:active {
+            background-color: $btn-active-bg-color;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // styles/main.scss
 
-$form-bg-color: #f9f9f9;
+/*$form-bg-color: #f9f9f9;
 $form-border-color: #ccc;
 $form-text-color: #333;
 $primary-color: #4CAF50;
@@ -70,4 +187,6 @@ $icon-size: 20px;
       background-color: darken($primary-color, 10%);
     }
   }
-}
+}*/
+
+

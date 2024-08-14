@@ -8,7 +8,7 @@
 }
 
 @mixin buttons {
-  color: $text-color;
+  color: $button-text-color;
   border-radius: 20px;
   background-color: $button-colour;
   cursor: pointer;
@@ -27,12 +27,15 @@
 }
 
 body {
+  background-color: $background-color;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 /* Sign Up Page */
 
-.signup-home{
+.signup-home {
+  width:100vw;
+  height:100vh;
   background-color: $background-color;
 }
 
@@ -42,14 +45,15 @@ body {
   margin-left: 50%;
   margin-top: 30px;
   width: 100vh;
+  background-color: $section-background; /* Ensure section background is white */
 
   .form-heading {
     @include heading;
 
     img {
       width: 200px;
-      height: 200px;
-      margin-top: 0;
+      height: 100px;
+      margin-bottom: 20px;
     }
 
     h1 {
@@ -66,17 +70,19 @@ body {
   }
 
   form {
+    background-color: $section-background; /* Ensure form background is white */
     width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-right: 1000px;
 
     .details-div {
-      margin-top: -15px;
+      margin-top: -45px;
       position: relative;
       margin-bottom: 20px;
 
       .signup-icon {
-        position:inherit;
+        position: inherit;
         margin-left: 180px;
         font-size: 14px;
         top: 50%;
@@ -93,14 +99,13 @@ body {
         border-radius: 5px;
         font-size: $font-size-small;
         color: #000000;
-        background-color: $section-background;
+        background-color: $section-background; /* Ensure input background is white */
         transform: translate(10%);
 
         &::placeholder {
           color: $input-border;
         }
       }
-
     }
 
     .btn {
@@ -117,4 +122,3 @@ body {
     }
   }
 }
-
