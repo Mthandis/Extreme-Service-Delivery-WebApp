@@ -10,7 +10,14 @@ const login = async (req, res) => {
 
     try {
         // Query to get the user by email
-        const [rows] = await db.query('SELECT * FROM users WHERE email = ?', [email]);
+        const [rows] = await db.query(
+            `SELECT u.*, r.roleName, d.dept_name 
+            FROM users u 
+            LEFT JOIN roles r ON u.roleID = r.roleID 
+            LEFT JOIN department d ON u.departmentID = d.ID 
+            WHERE u.email = ?`, 
+            [email]
+        );
 
         if (rows.length === 0) return res.status(404).json({ message: 'User does not exist' });
 
@@ -19,23 +26,10 @@ const login = async (req, res) => {
 
         if (!validPassword) return res.status(401).json({ message: 'Incorrect password' });
 
-        let loggedUser = null;
-
-        // Check role and get additional user data
-        if (user.roleName === 'RESIDENT') {
-            const [residentRows] = await db.query('SELECT * FROM residents WHERE email = ?', [email]);
-            loggedUser = residentRows[0];
-        } else if (user.roleName === 'ADMIN') {
-            const [adminRows] = await db.query('SELECT * FROM admin WHERE email = ?', [email]);
-            loggedUser = adminRows[0];
-        }
-
-        if (!loggedUser) return res.status(403).json({ message: 'Unauthorized access' });
-
         // Generate JWT token
         const token = jwt.sign(
             {
-                id: loggedUser.userID,
+                id: user.id,
                 roleName: user.roleName,
             },
             process.env.SECRET_KEY,
@@ -43,7 +37,7 @@ const login = async (req, res) => {
         );
 
         // Send response
-        res.header('Authorization', `Bearer ${token}`).json({ user, token, loggedUser });
+        res.header('Authorization', `Bearer ${token}`).json({ user, token });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: error.message });
