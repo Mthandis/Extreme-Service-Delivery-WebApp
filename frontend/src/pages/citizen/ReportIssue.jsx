@@ -1,92 +1,97 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../../scss/reportIssue.scss'; // Importing the SASS file
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'; // Use the appropriate icon
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 const ReportIssue = () => {
-  // State to manage form inputs
-  const [location, setLocation] = useState('');
-  const [issue, setIssue] = useState('');
-  const [description, setDescription] = useState('');
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState({
+        location: '',
+        description: '',
+        issueCategory: ''
+    });
 
-  // Function to handle form submission
-  const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent the default form submission
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
-    try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', {
-        location,
-        issue,
-        description
-      });
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const token = localStorage.getItem('token');
+            const response = await axios.post(
+                'http://localhost:5000/api/issue/report-issue',
+                formData,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    }
+                }
+            );
+            alert(response.data.message);
+            navigate('/homepage'); // Redirect to the homepage after successful submission
+        } catch (error) {
+            console.error(error);
+            if (error.response) {
+                alert(error.response.data.message);
+            } else {
+                alert('An error occurred. Please try again.');
+            }
+        }
+    };
 
-      // Handle success
-      setSuccess('Issue reported successfully!');
-      setError(null);
-      console.log('Issue reported:', response.data);
-    } catch (error) {
-      // Handle error
-      setError('Failed to report the issue. Please try again.');
-      setSuccess(null);
-      console.error('There was an error reporting the issue!', error);
-    }
-  };
+    return (
+        <div className='goback-button'>
+            <FontAwesomeIcon
+                icon={faArrowLeft}
+                className="back-button"
+                onClick={() => window.history.back()} // Go back to the previous page
+            />
+            <div className="container">
+                <h1>Report Issue</h1>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="location">Location:</label>
+                    <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        placeholder="Enter location"
+                        value={formData.location}
+                        onChange={handleChange}
+                    />
 
-  return (
-    <div className="goback-button">
-      <FontAwesomeIcon
-        icon={faArrowLeft}
-        className="back-button"
-        onClick={() => window.history.back()} // Go back to the previous page
-      />
-      <div className="container">
-        <h1>Report Issue</h1>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="location">Location:</label>
-          <input
-            type="text"
-            id="location"
-            name="location"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            placeholder="Enter location"
-          />
+                    <label htmlFor="issueCategory">Select an issue below:</label>
+                    <select
+                        id="issueCategory"
+                        name="issueCategory"
+                        value={formData.issueCategory}
+                        onChange={handleChange}
+                    >
+                        <option value="" disabled selected hidden>Select a Category</option>
+                        <option value="crime">Crime</option>
+                        <option value="electricity">Electricity</option>
+                        <option value="water">Water</option>
+                        <option value="other">Other</option>
+                    </select>
 
-          <label htmlFor="issue">Select an issue below:</label>
-          <select
-            id="issue"
-            name="issue"
-            value={issue}
-            onChange={(e) => setIssue(e.target.value)}
-          >
-            <option value="" disabled hidden>Select an option</option>
-            <option value="crime">Crime</option>
-            <option value="electricity">Electricity</option>
-            <option value="water">Water</option>
-            <option value="other">Other</option>
-          </select>
-
-          <label htmlFor="description">Description of issue:</label>
-          <textarea
-            id="description"
-            name="description"
-            rows="4"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            placeholder="Describe the issue in detail"
-          ></textarea>
-
-          <button type="submit" className="submit-issue-button">Submit</button>
-        </form>
-        {error && <p className="error-message">{error}</p>}
-        {success && <p className="success-message">{success}</p>}
-      </div>
-    </div>
-  );
+                    <label htmlFor="description">Description of issue:</label>
+                    <textarea
+                        id="description"
+                        name="description"
+                        rows="4"
+                        placeholder="Describe the issue in detail"
+                        value={formData.description}
+                        onChange={handleChange}
+                    ></textarea>
+                    
+                    <button type="submit" className='submit-issue-button'>Submit</button>
+                </form>
+            </div>
+        </div>
+    );
 }
 
 export default ReportIssue;

@@ -1,19 +1,21 @@
 import React from 'react';
 import '../../scss/homepage.scss'; 
 import img1 from '../../assets/logo.jpeg';
-import person from '../../assets/person.jpg'
+import person from '../../assets/person.jpg';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGear, faPeopleGroup, faQuestionCircle, faRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons'
-//import '../scss/main.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGear, faPeopleGroup, faQuestionCircle, faRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons';
 
 const Homepage = ({handleLogout}) => {
+    const name = localStorage.getItem('name');
+    const surname = localStorage.getItem('surname');
+
     return (
         <div className="citizen-dashboard">
 
         <aside className='sidebar'>
             <img src={person} className='profile-pic' alt=""/>
-            <h2>Name Surname</h2>
+            <h2>{name} {surname}</h2> {/* Display the user's name and surname */}
             <Link to='/help'><p className='links'><FontAwesomeIcon icon={faQuestionCircle} className='dash-icon'/> Help</p></Link>
             <Link to='/about'><p className='links'><FontAwesomeIcon icon={faPeopleGroup} className='dash-icon'/> About Us</p></Link>
             <Link to='/settings'><p className='links'><FontAwesomeIcon icon={faGear} className='dash-icon'/> Settings</p></Link>

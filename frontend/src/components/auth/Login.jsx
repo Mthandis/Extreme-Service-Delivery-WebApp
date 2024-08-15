@@ -21,12 +21,14 @@ function Login() {
         },
       });
 
+
       const { user, token } = response.data;
 
       localStorage.setItem('token', token);
       localStorage.setItem('role', user.roleName);
-        
-     
+      localStorage.setItem('name', user.name);
+      localStorage.setItem('surname', user.surname);
+      
 
       switch (user.roleName) {
         case 'RESIDENT':

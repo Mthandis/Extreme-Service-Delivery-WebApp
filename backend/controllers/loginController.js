@@ -26,17 +26,18 @@ const login = async (req, res) => {
 
         if (!validPassword) return res.status(401).json({ message: 'Incorrect password' });
 
-        // Generate JWT token
+        // Generate JWT token with all user details
         const token = jwt.sign(
             {
-                id: user.id,
-                roleName: user.roleName,
+                user: {
+                    ...user // Spread the user object to include all fields in the JWT token
+                }
             },
             process.env.SECRET_KEY,
             { expiresIn: '1h' }
         );
 
-        // Send response
+        // Send response with token
         res.header('Authorization', `Bearer ${token}`).json({ user, token });
     } catch (error) {
         console.error(error);
